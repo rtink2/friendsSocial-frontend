@@ -1,0 +1,28 @@
+import React, { Component } from 'react';
+import { isAuthenticated } from '../auth';
+
+class Profile extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: '',
+      redirectToSignin: false
+    };
+  }
+
+  componentDidMount() {
+    console.log('user id from route params: ', this.props.match.params.userId);
+  }
+
+  render() {
+    return (
+      <div className='continer'>
+        <h2 className='mt-5 mb-5'>Profile</h2>
+        <p>Name: {isAuthenticated().user.name}</p>
+        <p>Email: {isAuthenticated().user.email}</p>
+      </div>
+    );
+  }
+}
+
+export default Profile;
