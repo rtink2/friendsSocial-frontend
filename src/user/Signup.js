@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { signup } from '../auth';
+import { Link } from 'react-router-dom';
 
 class Signup extends Component {
   constructor() {
@@ -121,7 +122,7 @@ class Signup extends Component {
           <span role='img' aria-label='face'>
             😄
           </span>{' '}
-          Please SignIn
+          Please <Link to='/signin'>SignIn</Link>
           <button
             type='button'
             className='close'

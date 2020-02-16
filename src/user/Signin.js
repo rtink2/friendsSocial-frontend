@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { signin, authenticate } from '../auth';
+import '../App.css';
 
 class Signin extends Component {
   constructor() {
@@ -67,7 +68,7 @@ class Signin extends Component {
           value={password}
         />
       </div>
-      <button onClick={this.clickSubmit} className='btn btn-raised btn-warning'>
+      <button onClick={this.clickSubmit} className='btn btn-raised btn-primary'>
         SignIn
       </button>
     </form>
@@ -101,13 +102,20 @@ class Signin extends Component {
 
         {loading ? (
           <div className='jumbotron text-center'>
-            <h2>Loading....</h2>
+            <div class='lds-hourglass'></div>
           </div>
         ) : (
           ''
         )}
 
         {this.signinForm(email, password)}
+
+        <p>
+          <Link to='/forgot-password' className='text-danger'>
+            {' '}
+            Forgot Password
+          </Link>
+        </p>
       </div>
     );
   }
